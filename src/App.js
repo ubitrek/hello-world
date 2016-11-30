@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Remarkable from 'remarkable';
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
+import { Button, Card, Row, Col } from 'react-materialize';
 
+'use strict'
 
 const App = () => { console.log("hello world"); return <h1>Hello World++++ !</h1> };
 export default App
@@ -53,10 +55,14 @@ export class MarkdownEditor extends React.Component {
         className: "content",
         style: {color: 'red'},
         dangerouslySetInnerHTML: this.getRawMarkup()
-      })
+      }),
     );
   }
 }
+
+export const Butt = () => (
+    <Button floating large className='red' waves='light' icon='add' />
+)
 
 const Nav = () => (
   <div>
