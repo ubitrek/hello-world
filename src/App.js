@@ -5,7 +5,7 @@ import { Button, Card, Row, Col } from 'react-materialize';
 
 'use strict'
 
-const App = () => { console.log("hello world"); return <h1>Hello World++++ !</h1> };
+const App = () => { console.log("hello world"); return <h1>Hello World++++++|| !</h1> };
 export default App
 
 
@@ -61,7 +61,10 @@ export class MarkdownEditor extends React.Component {
 }
 
 export const Butt = () => (
+  <div>
     <Button floating large className='red' waves='light' icon='add' />
+    <Button floating large className='blue' waves='light' icon='add' />
+  </div>
 )
 
 const Nav = () => (
@@ -78,7 +81,7 @@ const Address = (props) => <div><h1>We are located at 555 Jackson St.</h1>{props
 
 const NotFound = () => (
   <h1>404.. This page is not found!</h1>)
-  
+
 const Container = (props) => {console.log(props); return <div>
   <Nav />
   {props.children}
@@ -90,7 +93,7 @@ const TwitterFeed = () => <h3>Twitter Feed</h3>
 
 export class App1 extends Component {
   render () {
-    return (	
+    return (
       <Router history={hashHistory}>
         <Route path='/' component={Container}>
           <IndexRoute component={Home} />
