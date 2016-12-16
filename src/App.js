@@ -5,7 +5,16 @@ import { Button, Card, Row, Col } from 'react-materialize';
 
 'use strict'
 
-const App = () => { console.log("hello world"); return <h1>Hello World++++++|| !</h1> };
+const App = () => {
+    console.log("hello world");
+    return <div>
+	<h1>Hello World ++ !</h1>
+	{ React.createElement(MarkdownEditor, null) }
+	<Butt />
+	<Search />
+	<App1 />
+	</div>;
+}
 export default App
 
 
@@ -14,7 +23,7 @@ const divStyle = {
 };
 
 
-export class MarkdownEditor extends React.Component {
+class MarkdownEditor extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -60,19 +69,28 @@ export class MarkdownEditor extends React.Component {
   }
 }
 
-export const Butt = () => (
+var click = function(props) {
+    console.log(props);
+    console.log('button on click');
+    //console.log(React.Children.toArray(props.children));
+}
+
+const Butt = () => (
   <div>
     <Button floating large className='red' waves='light' icon='add' />
-    <Button floating large className='blue' waves='light' icon='add' />
+    <Button floating large className='blue' waves='light' icon='add' onClick={(props) => click(props)} />
   </div>
 )
+
+
 
 const Nav = () => (
   <div>
     <Link activeStyle={{color:'#53acff'}} to='/'>Home</Link>&nbsp;
     <Link activeStyle={{color:'#53acff'}} to='/address'>Address</Link>&nbsp;
     <Link activeStyle={{color:'#53acff'}} to='/address/instagram'>Instagram</Link>&nbsp;
-    <Link activeStyle={{color:'#53acff'}} to='/about'>About</Link>
+    <Link activeStyle={{color:'#53acff'}} to='/about'>About</Link>&nbsp;
+    <Link activeStyle={{color:'#53acff'}} to='/test.html'>Test</Link>
   </div>
 )
 
@@ -80,7 +98,7 @@ const Home = () => <h1>Hello from Home!</h1>
 const Address = (props) => <div><h1>We are located at 555 Jackson St.</h1>{props.children}</div>
 
 const NotFound = () => (
-  <h1>404.. This page is not found!</h1>)
+  <h1>404.. This page is not found!!!</h1>)
 
 const Container = (props) => {console.log(props); return <div>
   <Nav />
@@ -91,7 +109,7 @@ const Instagram = () => <h3>Instagram Feed</h3>
 const TwitterFeed = () => <h3>Twitter Feed</h3>
 
 
-export class App1 extends Component {
+class App1 extends Component {
   render () {
     return (
       <Router history={hashHistory}>
@@ -107,3 +125,30 @@ export class App1 extends Component {
     )
   }
 }
+
+var Search = React.createClass({
+    getInitialState: function() {
+        return { showResults: false };
+    },
+    onClick: function() {
+        this.setState({ showResults: true });
+    },
+    render: function() {
+        return (
+            <div>
+                <input type="submit" value="Search" onClick={this.onClick} />
+                { this.state.showResults ? <Results /> : null }
+            </div>
+        );
+    }
+});
+
+var Results = React.createClass({
+    render: function() {
+        return (
+            <div id="results" className="search-results">
+                Some Results
+            </div>
+        );
+    }
+});

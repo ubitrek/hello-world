@@ -1,0 +1,27 @@
+{
+    "name": "hello-world",
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+    "main": "webpack.config.js",
+    "authors": [
+        "ubitrek <geekit@interia.pl>"
+    ],
+    "license": "ISC",
+    "homepage": "https://github.com/ubitrek/hello-world",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "^3.1.1",
+        "vue": "^2.1.6",
+        "normalize-css": "normalize.css#^5.0.0"
+    },
+    "overrides": {
+        "vue": {
+            "main": "dist/vue.js"
+        }
+    }
+}
