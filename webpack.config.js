@@ -27,7 +27,11 @@ module.exports = {
         loader: 'babel-loader'
       },
       { test: /\.css$|\.jpe?g$|\.gif$|\.png|\.ico$/, loader: 'file?name=[path][name].[ext]' },
-      { test: /\.html$/, loader: 'raw' }
+      { test: /\.html$/, loader: 'raw' },
+      {
+       test: /\.less$/,
+       loader: "style-loader!css-loader!less-loader"
+     }
     ]
   }
 }
